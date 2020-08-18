@@ -1,0 +1,16 @@
+
+.main-form{
+    width: 80%;
+    margin: 10vh auto;
+    
+}
+
+h1{
+    padding: 2rem 0;
+}
+
+form{
+    background-color: #eee;
+    padding: 2rem 4rem;
+    border-radius: 4px;
+}

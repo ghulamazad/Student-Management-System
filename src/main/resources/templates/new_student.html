@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Student Management System</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<style type="text/css">
+.main-form {
+	width: 80%;
+	margin: 10vh auto;
+}
+
+h1 {
+	padding: 2rem 0;
+}
+
+form {
+	background-color: #eee;
+	padding: 2rem 4rem;
+	border-radius: 4px;
+}
+.error{
+	color: red;
+	font-weight: 600;
+}
+</style>
+</head>
+<body>
+	<div class="main-form">
+		<h2>Student Form</h2>
+		<form action="#" th:action="@{/saveStudent}" th:object="${student}"
+			method="post">
+			<div class="row">
+				<input type="hidden" th:field="*{id}">
+				<div class="form-group col-md-6">
+					<label for="studentname">Student Name</label> <input type="text"
+						th:field="*{studentName}" class="form-control" id="studentname"
+						placeholder="Student Name" required>
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="studentage">Student Age</label> <input type="text"
+						th:field="*{age}" class="form-control" id="studentage"
+						placeholder="Student Age" required>
+						<span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error"></span>
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="studentDOB">Student DOB</label> <input type="date"
+						th:field="*{dob}" class="form-control" id="studentDOB"
+						placeholder="Student DOB" required>
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="studentmobile">Student Mobile</label> <input
+						th:field="*{mobile}" type="text" class="form-control"
+						id="studentmobile" placeholder="Student Mobile" required>
+						<span th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}" class="error"></span>
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="studentemail">Student Email</label> <input type="email"
+						th:field="*{email}" class="form-control" id="studentemail"
+						placeholder="Student Email" required>
+						<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="studentAddress">Student Address</label>
+					<textarea th:field="*{address}" class="form-control"
+						id="studentAddress" rows="3" required></textarea>
+						<span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="error"></span>
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="inputState">Student Course</label> <select
+						th:field="*{courseId}" id="inputState" class="form-control"
+						required>
+						<option th:each="course : ${courses}" th:value="${course.id}"
+							th:text="${course.courseName}">Not available</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="form-check">
+					<input th:field="*{active}" class="form-check-input"
+						type="checkbox" id="gridCheck"> <label
+						class="form-check-label" for="gridCheck"> Active </label>
+				</div>
+			</div>
+			<div th:if="${id}">
+				<button type="submit" class="btn btn-primary">Update Student</button>
+			</div>
+			<!-- ELSE -->
+			<div th:unless="${id}">
+				<button type="submit" class="btn btn-primary">Add Student</button>
+			</div>
+
+		</form>
+
+	</div>
+
+</body>
+</html>
+</body>
+</html>
