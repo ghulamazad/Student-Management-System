@@ -42,4 +42,8 @@ public class StudentService {
 	public void save(Student student) {
 		studentRepository.save(student);
 	}
+
+	public void delete(int id) {
+		studentRepository.deleteById(id);
+	}
 }
