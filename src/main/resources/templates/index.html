@@ -9,11 +9,16 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Student List</h1>
-		<a th:href="@{/addStudentForm}" class="btn btn-primary btn-sm mb-3">
-			Add Student </a>
-		<table class="table table-bordered">
-			<thead class="thead-dark">
+		<div th:if="${students}">
+			<h1 class="mb-3">Student Information is not available</h1>
+		</div>
+		<!-- ELSE -->
+		<div th:unless="${students}">
+			<h1 class="mb-3">Student List</h1>
+			<a th:href="@{/addStudentForm}" class="btn btn-primary btn-sm mb-3">
+				Add Student </a>
+			<table class="table table-bordered">
+				<thead class="thead-dark">
 				<tr>
 					<th>Name</th>
 					<th>Age</th>
@@ -21,40 +26,39 @@
 					<th>Mobile</th>
 					<th>Email</th>
 					<th>Address</th>
-					<th>Course</th>
+					<th>Course Id</th>
 					<th>Active</th>
 					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
-			</thead>
-			<tr th:each="student : ${students}">
-				<th th:text="${student.studentName}">Name</th>
-				<th th:text="${student.age}">Age</th>
-				<th th:text="${student.dob}">DOB</th>
-				<th th:text="${student.mobile}">Mobile</th>
-				<th th:text="${student.email}">Email</th>
-				<th th:text="${student.address}">Address</th>
-				<th th:text="${student.courseId}">Course</th>
-				<th th:if="${student.active == 'Y'}">YES</th>
-				<th th:unless="${student.active == 'Y'}">NO</th>
-				<th><a th:href="@{/showUpdateForm/{id}(id=${student.id})}"
-					class="btn btn-success"><i class="fa fa-pencil-square"
-						aria-hidden="true"></i></a></th>
-				<th><a th:href="@{/deleteStudent/{id}(id=${student.id})}"
-					class="btn btn-danger"><i class="fa fa-trash"
-						aria-hidden="true"></i></a></th>
-			</tr>
-		</table>
-		<div>
-			<nav aria-label="...">
-				<ul th:each="i : ${#numbers.sequence(1,totalPages)}"
-					class="pagination pagination-lg">
-					<li class="page-item"><a class="page-link" th:if="${i != currentPage}"
-						th:href="@{'/page/'+${i}}">[[${i}]]</a></li>
-					<li class="page-item disabled"><a class="page-link" th:unless="${i != currentPage}"
-						th:href="@{'/page/'+${i}}" >[[${i}]] </a></li>
-				</ul>
-			</nav>
+				</thead>
+				<tr th:each="student : ${students}">
+					<th th:text="${student.studentName}">Name</th>
+					<th th:text="${student.age}">Age</th>
+					<th th:text="${student.dob}">DOB</th>
+					<th th:text="${student.mobile}">Mobile</th>
+					<th th:text="${student.email}">Email</th>
+					<th th:text="${student.address}">Address</th>
+					<th th:text="${student.courseId}">Course</th>
+					<th th:if="${student.active == 'Y'}">YES</th>
+					<th th:unless="${student.active == 'Y'}">NO</th>
+					<th><a th:href="@{/showUpdateForm/{id}(id=${student.id})}"
+						   class="btn btn-success"><i class="bi bi-pencil-square"></i></a></th>
+					<th><a th:href="@{/deleteStudent/{id}(id=${student.id})}"
+						   class="btn btn-danger"><i class="bi bi-x-square-fill"></i></a></th>
+				</tr>
+			</table>
+			<div>
+				<nav aria-label="...">
+					<ul th:each="i : ${#numbers.sequence(1,totalPages)}"
+						class="pagination pagination-lg">
+						<li class="page-item"><a class="page-link" th:if="${i != currentPage}"
+												 th:href="@{'/page/'+${i}}">[[${i}]]</a></li>
+						<li class="page-item disabled"><a class="page-link" th:unless="${i != currentPage}"
+														  th:href="@{'/page/'+${i}}" >[[${i}]] </a></li>
+					</ul>
+				</nav>
+			</div>
 		</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
