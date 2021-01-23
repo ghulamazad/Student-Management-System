@@ -2,28 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Student Management System</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<style type="text/css">
-.main-form {
-	width: 80%;
-	margin: 10vh auto;
-}
-
-h1 {
-	padding: 2rem 0;
-}
-
-form {
-	background-color: #eee;
-	padding: 2rem 4rem;
-	border-radius: 4px;
-}
-.error{
-	color: red;
-	font-weight: 600;
-}
-</style>
+	<title>Student Management System</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
 	<div class="main-form">
@@ -81,7 +63,6 @@ form {
 					</select>
 				</div>
 			</div>
-
 			<div class="form-group">
 				<div class="form-check">
 					<input th:field="*{active}" class="form-check-input"
@@ -96,11 +77,9 @@ form {
 			<div th:unless="${id}">
 				<button type="submit" class="btn btn-primary">Add Student</button>
 			</div>
-
 		</form>
-
 	</div>
-
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>
 </body>
