@@ -9,11 +9,13 @@
 </head>
 <body>
 	<div class="container">
-		<div th:if="${students}">
+		<div th:if="${students.size() == 0}">
+			<a th:href="@{/addStudentForm}" class="btn btn-primary btn-sm mb-3 mt-3">
+				Add Student </a>
 			<h1 class="mb-3">Student Information is not available</h1>
 		</div>
 		<!-- ELSE -->
-		<div th:unless="${students}">
+		<div th:unless="${students.size() == 0}">
 			<h1 class="mb-3">Student List</h1>
 			<a th:href="@{/addStudentForm}" class="btn btn-primary btn-sm mb-3">
 				Add Student </a>
