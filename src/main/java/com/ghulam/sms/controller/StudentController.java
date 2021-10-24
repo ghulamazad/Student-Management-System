@@ -1,4 +1,4 @@
-package com.student.controller;
+package com.ghulam.sms.controller;
 
 import java.util.List;
 
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.student.model.Course;
-import com.student.model.Student;
-import com.student.service.CourseService;
-import com.student.service.StudentService;
+import com.ghulam.sms.model.Course;
+import com.ghulam.sms.model.Student;
+import com.ghulam.sms.service.CourseService;
+import com.ghulam.sms.service.StudentService;
 
 @Controller
 public class StudentController {

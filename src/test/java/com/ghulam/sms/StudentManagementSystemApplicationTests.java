@@ -1,10 +1,10 @@
-package com.cruddemo.studentdemo;
+package com.ghulam.sms;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class StudentdemoApplicationTests {
+class StudentManagementSystemApplicationTests {
 
 	@Test
 	void contextLoads() {

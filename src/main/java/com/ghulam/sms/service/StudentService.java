@@ -1,15 +1,14 @@
-package com.student.service;
+package com.ghulam.sms.service;
 
 import java.util.Optional;
 
+import com.ghulam.sms.model.Student;
+import com.ghulam.sms.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import com.student.model.Student;
-import com.student.repository.StudentRepository;
 
 @Service
 public class StudentService {

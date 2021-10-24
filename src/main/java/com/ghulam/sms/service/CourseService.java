@@ -1,12 +1,12 @@
-package com.student.service;
+package com.ghulam.sms.service;
 
 import java.util.List;
 
+import com.ghulam.sms.model.Course;
+import com.ghulam.sms.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.student.model.Course;
-import com.student.repository.CourseRepository;
 
 @Service
 public class CourseService {

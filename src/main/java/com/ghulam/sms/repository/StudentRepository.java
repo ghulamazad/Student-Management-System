@@ -1,8 +1,8 @@
-package com.student.repository;
+package com.ghulam.sms.repository;
 
+import com.ghulam.sms.model.Student;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-import com.student.model.Student;
 
 public interface StudentRepository extends PagingAndSortingRepository<Student, Integer> {
 
